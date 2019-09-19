@@ -25,7 +25,8 @@ public class SpringBootController {
 	public void loadList(){
 		alunos.add("Jose");
 		alunos.add("Maria");
-		alunos.add("Joao");
+		alunos.add("Alyson");
+		
 	}
 	
 	
