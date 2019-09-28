@@ -27,7 +27,6 @@ public class SpringBootController {
 		alunos.add("Maria");
 		alunos.add("Alyson");
 		alunos.add("Tiago");
-		
 	}
 	
 	
