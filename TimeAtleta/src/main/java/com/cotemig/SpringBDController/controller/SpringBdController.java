@@ -21,6 +21,7 @@ public class SpringBdController {
 
 	@Autowired
 	private TimeService timeService;
+	@Autowired
 	private AtletaService atletaService;
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
@@ -30,7 +31,7 @@ public class SpringBdController {
 		if(tipo == 1) {
 			return new ModelAndView("insert", "time", new Time());			
 		}else {
-			ModelAndView mav = new ModelAndView("insertAtleta");
+			ModelAndView mav = new ModelAndView("insertAtleta", "atleta", new Atleta());
 			mav.addObject("times", timeService.getAllTimes());
 			return mav;		
 		}
@@ -48,8 +49,9 @@ public class SpringBdController {
         
         return "redirect:";
     }
+	
 	@RequestMapping(value = "/insertatleta", method = RequestMethod.POST)
-    public String submitInsertAtleta(@Valid @ModelAttribute("atleta")Atleta atleta, 
+    public String submitInsert(@Valid @ModelAttribute("atleta")Atleta atleta, 
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
@@ -68,8 +70,6 @@ public class SpringBdController {
 		}else{
 			return new ModelAndView("delete", "atleta", atletaService.getAtletaById(id).get());
 		}
-		
-		
     }
 	
 	@RequestMapping(value = "/deleteTime", method = RequestMethod.POST)
@@ -149,6 +149,7 @@ public class SpringBdController {
         
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("times", timeService.getAllTimes());
+        mav.addObject("atletas", atletaService.getAllAtletas());
         return mav;
         
     }
