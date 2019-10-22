@@ -1,0 +1,19 @@
+<html>
+	<head>
+	    <title>Atualizar</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="/updateTime" method="POST" modelAttribute="time">
+		
+		ID time:<br>
+		<input type="text" name="id" th:value="${time.id}"><br>
+				
+		Nome atleta:<br>
+		<input type="text" name="nome" th:value="${time.nome}"><br>
+	
+		
+		<input type="submit" value="Atualizar">
+		</form>
+	</body>
+</html>
