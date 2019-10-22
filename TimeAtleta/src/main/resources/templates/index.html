@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>CRUD Aluno</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		</style>
+	</head>
+	<body>
+		<a href="insert?tipo=1">Inserir Time</a> | <a href="insert?tipo=2">Inserir Atleta</a> | <a href="read">Ver todos</a> <br> <br>
+		<table style="width:100%">
+			<tr>
+			    <th>ID</td>
+			    <th>Nome</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="time : ${times}">
+			    <td th:text="${time.id}"></td>
+			    <td th:text="${time.nome}"></td>
+			    <td><a th:href="@{/delete(id=${time.id}, tipo=1)}">Deletar</a></td>
+			    <td><a th:href="@{/update(id=${time.id}, tipo=1)}">Alterar</a></td>
+			</tr>
+		</table>
+		<table style="width:100%">
+			<tr>
+			    <th>ID</td>
+			    <th>Nome</td>
+			    <th>Idade</td>
+			    <th>Modalidade</td>
+			    <th>Posição</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="atleta : ${atletas}">
+			    <td th:text="${atleta.id}"></td>
+			    <td th:text="${atleta.nome}"></td>
+			    <td th:text="${atleta.idade}"></td>
+			    <td th:text="${atleta.modalidade}"></td>
+			    <td th:text="${atleta.posicao}"></td>
+			    <td><a th:href="@{/delete(id=${atleta.id}, tipo=2)}">Deletar</a></td>
+			    <td><a th:href="@{/update(id=${atleta.id}, tipo=2)}">Alterar</a></td>
+			</tr>
+		</table>
+	</body>
+</html>

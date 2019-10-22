@@ -1,0 +1,30 @@
+<html>
+	<head>
+	    <title>Inserir</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="/insertatleta" method="POST" modelAttribute="atleta">
+		
+  			Nome atleta:<br>
+  			<input type="text" name="nome"><br>
+  			<br>
+  			Idade:<br>
+  			<input type="text" name="idade"><br>
+  			<br>
+  			Posição:<br>
+  			<input type="text" name="posicao"><br>
+  			<br>
+  			Modalidade:<br>
+  			<input type="text" name="modalidade"><br>
+  			<br>
+  			Time:<br>
+  			<select name="time" >
+				<option th:each="time : ${times}" th:value="${time.id}" th:text="${time.nome}"></option>
+			</select>
+  			<br>
+  			
+  			<input type="submit" value="Inserir">
+		</form>
+	</body>
+</html>
