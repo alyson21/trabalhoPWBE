@@ -18,7 +18,7 @@ import com.cotemig.SpringBDController.service.AtletaService;
 
 @RestController
 public class SpringBdRestController {
-	
+
 	@Autowired
 	private TimeService timeService;
 	@Autowired
