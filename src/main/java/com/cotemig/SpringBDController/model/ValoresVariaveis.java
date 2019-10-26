@@ -1,6 +1,7 @@
 package com.cotemig.SpringBDController.model;
 
 public class ValoresVariaveis {
+	
 	private Integer id;
 	private String natureza;
 	private String tipo;
