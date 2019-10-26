@@ -29,7 +29,7 @@ public class SpringBdRestController {
     	if(tipo == 1) {
     		return timeService.getAllTimes();
     	}else {
-    		return atletaService.getAllAtletas();    		
+    		return atletaService.getAllAtletas();
     	}
 	}
     
