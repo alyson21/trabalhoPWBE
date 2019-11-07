@@ -1,8 +1,17 @@
 package com.cotemig.SpringBDController.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Pagamentos {
 	
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	private Integer competencia;
 	private Integer idFuncionario;
 	private Integer idValorVariavel;
 	private Integer idSalario;
@@ -13,6 +22,12 @@ public class Pagamentos {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getCompetencia() {
+		return competencia;
+	}
+	public void setCompetencia(Integer competencia) {
+		this.competencia = competencia;
 	}
 	public Integer getIdFuncionario() {
 		return idFuncionario;
