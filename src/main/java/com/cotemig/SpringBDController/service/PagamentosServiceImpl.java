@@ -35,7 +35,6 @@ public class PagamentosServiceImpl implements PagamentosService {
 	public void deleteById(Integer id) {
 		PagamentosRepository.deleteById(id);
 	}
-
 	@Override
 	public void updateById(Integer id, Pagamentos pagamentos) {
 		
