@@ -42,7 +42,6 @@ public class PagamentosServiceImpl implements PagamentosService {
 		getPagamentos.get().setTotal(pagamentos.getTotal());
 		PagamentosRepository.save(pagamentos);
 	}
-	
 	@Override
 	public void update(Pagamentos pagamentos) {
 		PagamentosRepository.save(pagamentos);
