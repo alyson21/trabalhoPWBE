@@ -11,53 +11,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cotemig.SpringBDController.model.Time;
-import com.cotemig.SpringBDController.service.TimeService;
-import com.cotemig.SpringBDController.model.Atleta;
-import com.cotemig.SpringBDController.service.AtletaService;
+import com.cotemig.SpringBDController.model.Salario;
+import com.cotemig.SpringBDController.service.SalarioService;
+import com.cotemig.SpringBDController.model.Setor;
+import com.cotemig.SpringBDController.service.SetorService;
 
 @Controller
 public class SpringBdController {
 
 	@Autowired
-	private TimeService timeService;
+	private SalarioService SalarioService;
 	@Autowired
-	private AtletaService atletaService;
+	private SetorService setorService;
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
     public ModelAndView insert(Integer tipo) {
 		 
 		if(tipo == 1) {
-			return new ModelAndView("insert", "time", new Time());			
+			return new ModelAndView("insert", "Salario", new Salario());			
 		}else {
-			ModelAndView mav = new ModelAndView("insertAtleta", "atleta", new Atleta());
-			mav.addObject("times", timeService.getAllTimes());
+			ModelAndView mav = new ModelAndView("insertSetor", "setor", new Setor());
+			mav.addObject("Salarios", SalarioService.getAll());
 			return mav;		
 		}
     }
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public String submitInsert(@Valid @ModelAttribute("time")Time time, 
+    public String submitInsert(@Valid @ModelAttribute("Salario")Salario Salario, 
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
             return "error";
         }
         
-		timeService.insertTime(time);
+		SalarioService.insert(Salario);
         
         return "redirect:";
     }
 	
-	@RequestMapping(value = "/insertatleta", method = RequestMethod.POST)
-    public String submitInsert(@Valid @ModelAttribute("atleta")Atleta atleta, 
+	@RequestMapping(value = "/insertsetor", method = RequestMethod.POST)
+    public String submitInsert(@Valid @ModelAttribute("setor")Setor setor, 
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
             return "error";
         }
         
-		atletaService.insertAtleta(atleta);
+		setorService.insert(setor);
         
         return "redirect:";
     }
@@ -65,34 +65,34 @@ public class SpringBdController {
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
     public ModelAndView delete(Integer id, Integer tipo) {
 		if(tipo == 1){
-			return new ModelAndView("deleteTime", "time", timeService.getTimeById(id).get());
+			return new ModelAndView("deleteSalario", "Salario", SalarioService.getById(id).get());
 		}else{
-			return new ModelAndView("delete", "atleta", atletaService.getAtletaById(id).get());
+			return new ModelAndView("delete", "setor", setorService.getById(id).get());
 		}
     }
 	
-	@RequestMapping(value = "/deleteTime", method = RequestMethod.POST)
-    public String submitDeleteTime(@Valid @ModelAttribute("time")Time time,
+	@RequestMapping(value = "/deleteSalario", method = RequestMethod.POST)
+    public String submitDeleteSalario(@Valid @ModelAttribute("Salario")Salario Salario,
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
             return "error";
         }
 		
-		timeService.deleteTimeById(time.getId());
+		SalarioService.deleteById(Salario.getId());
         
         return "redirect:";
     }
 	
-	@RequestMapping(value = "/deleteAtleta", method = RequestMethod.POST)
-    public String submitDeleteAtleta(@Valid @ModelAttribute("atleta")Atleta atleta,
+	@RequestMapping(value = "/deleteSetor", method = RequestMethod.POST)
+    public String submitDeleteSetor(@Valid @ModelAttribute("setor")Setor setor,
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
             return "error";
         }
 		
-		atletaService.deleteAtletaById(atleta.getId());
+		setorService.deleteById(setor.getId());
         
         return "redirect:";
     }
@@ -100,35 +100,35 @@ public class SpringBdController {
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
     public ModelAndView update(Integer id, Integer tipo) {
 		if(tipo == 1){
-			 return new ModelAndView("updateTime", "time", timeService.getTimeById(id).get());
+			 return new ModelAndView("updateSalario", "Salario", SalarioService.getById(id).get());
 		}else{
-			return new ModelAndView("update", "atleta", atletaService.getAtletaById(id).get());			
+			return new ModelAndView("update", "setor", setorService.getById(id).get());			
 		}
 		
     }
 	
-	@RequestMapping(value = "/updateTime", method = RequestMethod.POST)
-    public String submitUpdateTime(@Valid @ModelAttribute("time")Time time,
+	@RequestMapping(value = "/updateSalario", method = RequestMethod.POST)
+    public String submitUpdateSalario(@Valid @ModelAttribute("Salario")Salario Salario,
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
             return "error";
         }
 		
-		timeService.updateTime(time);
+		SalarioService.update(Salario);
         
         return "redirect:";
     }
 	
-	@RequestMapping(value = "/updateatleta", method = RequestMethod.POST)
-    public String submitUpdateAtleta(@Valid @ModelAttribute("atleta")Atleta atleta,
+	@RequestMapping(value = "/updatesetor", method = RequestMethod.POST)
+    public String submitUpdateSetor(@Valid @ModelAttribute("setor")Setor setor,
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
             return "error";
         }
 		
-		atletaService.updateAtleta(atleta);
+		setorService.update(setor);
         
         return "redirect:";
     }
@@ -137,8 +137,8 @@ public class SpringBdController {
     public ModelAndView read() {
         
         ModelAndView mav = new ModelAndView("read");
-        mav.addObject("times", timeService.getAllTimes());
-        mav.addObject("atletas",  atletaService.getAllAtletas());
+        mav.addObject("Salarios", SalarioService.getAll());
+        mav.addObject("setors",  setorService.getAll());
         return mav;
         
     }
@@ -147,8 +147,8 @@ public class SpringBdController {
     public ModelAndView index() {
         
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("times", timeService.getAllTimes());
-        mav.addObject("atletas", atletaService.getAllAtletas());
+        mav.addObject("Salarios", SalarioService.getAll());
+        mav.addObject("setors", setorService.getAll());
         return mav;
         
     }
