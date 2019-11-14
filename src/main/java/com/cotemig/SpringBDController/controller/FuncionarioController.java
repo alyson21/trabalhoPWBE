@@ -24,7 +24,8 @@ public class FuncionarioController {
 	@RequestMapping(value = "/funcionario", method = RequestMethod.GET)
     public ModelAndView listar() {
 		ModelAndView mav = new ModelAndView();
-			return new ModelAndView("funcionario", "Funcionario", funcionarioService.getAll());	
+			return new ModelAndView("funcionario", "Funcionarios", funcionarioService.getAll());
+			
     }
 	
 	@RequestMapping(value = "/insertfuncionario", method = RequestMethod.GET)
