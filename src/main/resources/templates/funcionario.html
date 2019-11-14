@@ -7,11 +7,11 @@
 		
 		
 		<div th:each="funcionario : ${funcionarios}">
-			<span th:text="${'ID: ' + atleta.id}"></span><br>
-			<span th:text="${'Nome: ' + atleta.nome}"></span><br>
-			<span th:text="${'Posição: ' + atleta.posicao}"></span><br>
-			<span th:text="${'Modalidade: ' + atleta.modalidade}"></span><br>
-			<span th:text="${'Time: ' + atleta.time}"></span><br>
+			<span th:text="${'ID: ' + funcionario.id}"></span><br>
+			<span th:text="${'Nome: ' + funcionario.nome}"></span><br>
+			<span th:text="${'Sexo: ' + funcionario.sexo}"></span><br>
+			<span th:text="${'Nascimento: ' + funcionario.dataNascimento}"></span><br>
+			<span th:text="${'CPF: ' + funcionario.cpf}"></span><br>
 			<br>
 			<br>
 		</div>
