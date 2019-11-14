@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.method.annotation.ModelAndViewResolverMethodReturnValueHandler;
 
 import com.cotemig.SpringBDController.model.Funcionario;
 import com.cotemig.SpringBDController.service.FuncionarioService;
+import com.cotemig.SpringBDController.service.SalarioService;
 
 
 @Controller
@@ -21,16 +21,19 @@ public class FuncionarioController {
 	
 	@Autowired
 	private FuncionarioService funcionarioService;
+	@Autowired
+	private SalarioService salarioService;
 	
 	@RequestMapping(value = "/funcionario", method = RequestMethod.GET)
     public ModelAndView listar() {
-		ModelAndView mav = new ModelAndView();
-			return new ModelAndView("funcionario", "Funcionario", funcionarioService.getAll());	
+		
+		return new ModelAndView("funcionario", "Funcionario", funcionarioService.getAll());
+			
     }
 	
 	@RequestMapping(value = "/insertfuncionario", method = RequestMethod.GET)
-    public String insert() {
-			return "insertFuncionario";		
+    public ModelAndView insert() {
+		return new ModelAndView("insertfuncionario", "Salario", salarioService.getAll());	
     }
 	
 	

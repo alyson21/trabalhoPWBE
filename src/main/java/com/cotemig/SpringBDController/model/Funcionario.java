@@ -16,7 +16,7 @@ public class Funcionario {
 	private String nome;
 	private char sexo;
 	private Date dataNascimento;
-	private String Cpf;
+	private String cpf;
 	private Date dataAdmissao;
 	private Integer idSalario;
 	private Integer idSetor;
@@ -46,10 +46,10 @@ public class Funcionario {
 		this.dataNascimento = dataNascimento;
 	}
 	public String getCpf() {
-		return Cpf;
+		return cpf;
 	}
 	public void setCpf(String cpf) {
-		Cpf = cpf;
+		cpf = cpf;
 	}
 	public Date getDataAdmissao() {
 		return dataAdmissao;
