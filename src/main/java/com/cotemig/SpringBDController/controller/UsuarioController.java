@@ -39,6 +39,7 @@ public class UsuarioController {
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
+			
             return "error";
         }
         
