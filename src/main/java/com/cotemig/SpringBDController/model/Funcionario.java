@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Funcionario {
 	
@@ -15,8 +17,10 @@ public class Funcionario {
 	private Integer id;
 	private String nome;
 	private char sexo;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataNascimento;
 	private String cpf;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
 	private Integer idSalario;
 	private Integer idSetor;
@@ -49,7 +53,7 @@ public class Funcionario {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
-		cpf = cpf;
+		this.cpf = cpf;
 	}
 	public Date getDataAdmissao() {
 		return dataAdmissao;

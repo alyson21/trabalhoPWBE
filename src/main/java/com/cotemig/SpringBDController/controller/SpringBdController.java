@@ -24,6 +24,8 @@ public class SpringBdController {
 	@Autowired
 	private SetorService setorService;
 	
+	
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
     public ModelAndView insert(Integer tipo) {
 		 
@@ -49,19 +51,6 @@ public class SpringBdController {
         return "redirect:";
     }
 	
-	@RequestMapping(value = "/insertsetor", method = RequestMethod.POST)
-    public String submitInsert(@Valid @ModelAttribute("setor")Setor setor, 
-      BindingResult result, ModelMap model) {
-        
-		if (result.hasErrors()) {
-            return "error";
-        }
-        
-		setorService.insert(setor);
-        
-        return "redirect:";
-    }
-	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
     public ModelAndView delete(Integer id, Integer tipo) {
 		if(tipo == 1){
@@ -71,20 +60,7 @@ public class SpringBdController {
 		}
     }
 	
-	@RequestMapping(value = "/deleteSalario", method = RequestMethod.POST)
-    public String submitDeleteSalario(@Valid @ModelAttribute("Salario")Salario Salario,
-      BindingResult result, ModelMap model) {
-        
-		if (result.hasErrors()) {
-            return "error";
-        }
-		
-		SalarioService.deleteById(Salario.getId());
-        
-        return "redirect:";
-    }
-	
-	@RequestMapping(value = "/deleteSetor", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String submitDeleteSetor(@Valid @ModelAttribute("setor")Setor setor,
       BindingResult result, ModelMap model) {
         
@@ -107,7 +83,7 @@ public class SpringBdController {
 		
     }
 	
-	@RequestMapping(value = "/updateSalario", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
     public String submitUpdateSalario(@Valid @ModelAttribute("Salario")Salario Salario,
       BindingResult result, ModelMap model) {
         
@@ -116,19 +92,6 @@ public class SpringBdController {
         }
 		
 		SalarioService.update(Salario);
-        
-        return "redirect:";
-    }
-	
-	@RequestMapping(value = "/updatesetor", method = RequestMethod.POST)
-    public String submitUpdateSetor(@Valid @ModelAttribute("setor")Setor setor,
-      BindingResult result, ModelMap model) {
-        
-		if (result.hasErrors()) {
-            return "error";
-        }
-		
-		setorService.update(setor);
         
         return "redirect:";
     }

@@ -18,11 +18,11 @@ var header =
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link text-dark dropdown-toggle" href="funcionario" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Funcionários
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Inserir Funcionário</a>
+                    <a class="dropdown-item" href="insertfuncionario">Inserir Funcionário</a>
                     <a class="dropdown-item" href="#">Alterar Cadastro</a>
                     <a class="dropdown-item" href="#">Cadastrar Demissão</a>
                 </div>

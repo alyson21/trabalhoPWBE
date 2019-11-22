@@ -4,16 +4,23 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
+		<h1>Lista de Funcionários</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Sexo</th>
+				<th>Nascimento</th>
+				<th>Cpf</th>
+			</tr>
+			<tr th:each="funcionario : ${funcionarios}">
+				<td th:text="${funcionario.id}"></td>
+				<td th:text="${funcionario.nome}"></td>
+				<td th:text="${funcionario.sexo}"></td>
+				<td th:text="${funcionario.dataNascimento}"></td>
+				<td th:text="${funcionario.cpf}"></td>
+			</tr>
 		
-		
-		<div th:each="funcionario : ${funcionarios}">
-			<span th:text="${'ID: ' + funcionario.id}"></span><br>
-			<span th:text="${'Nome: ' + funcionario.nome}"></span><br>
-			<span th:text="${'Sexo: ' + funcionario.sexo}"></span><br>
-			<span th:text="${'Nascimento: ' + funcionario.dataNascimento}"></span><br>
-			<span th:text="${'CPF: ' + funcionario.cpf}"></span><br>
-			<br>
-			<br>
-		</div>
+		</table>
 	</body>
 </html>

@@ -1,5 +1,7 @@
 package com.cotemig.SpringBDController.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,29 +27,29 @@ public class FuncionarioController {
 	private SalarioService salarioService;
 	
 	@RequestMapping(value = "/funcionario", method = RequestMethod.GET)
-    public ModelAndView listar() {
-		
-		return new ModelAndView("funcionario", "Funcionario", funcionarioService.getAll());
+    public ModelAndView listar() {		
+		List<Funcionario> funcionarios = funcionarioService.getAll();
+		ModelAndView mav = new ModelAndView("funcionario");
+		mav.addObject("funcionarios", funcionarios);
+		return mav;
 			
     }
 	
 	@RequestMapping(value = "/insertfuncionario", method = RequestMethod.GET)
-    public ModelAndView insert() {
-		return new ModelAndView("insertfuncionario", "Salario", salarioService.getAll());	
+    public String insert() {
+		return "insertfuncionario";	
     }
 	
-	
 	@RequestMapping(value = "/insertfuncionario", method = RequestMethod.POST)
-    public String submitInsert(@Valid @ModelAttribute("Funcionario")Funcionario funcionario, 
+    public String submitInsert(@Valid @ModelAttribute("funcionario")Funcionario funcionario, 
       BindingResult result, ModelMap model) {
-        
 		if (result.hasErrors()) {
             return "error";
         }
         
 		funcionarioService.insert(funcionario);
         
-        return "sucesso";
+        return "redirect:funcionario";
     }
 	
 	@RequestMapping(value = "/updatefuncionario", method = RequestMethod.GET)

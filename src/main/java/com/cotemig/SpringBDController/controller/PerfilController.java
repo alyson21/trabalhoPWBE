@@ -23,8 +23,7 @@ public class PerfilController {
 
 	@RequestMapping(value = "/perfil", method = RequestMethod.GET)
     public ModelAndView listar() {
-		ModelAndView mav = new ModelAndView();
-			return new ModelAndView("perfil", "Perfil", perfilService.getAll());	
+		return new ModelAndView("perfil", "Perfil", perfilService.getAll());	
     }
 	
 	@RequestMapping(value = "/insertperfil", method = RequestMethod.GET)
