@@ -2,16 +2,18 @@
 	<head>
 		<title>Funcionarios</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
+		<div id="header"></div>
 		<h1>Lista de Funcionários</h1>
-		<table>
+		<table class="table table-bordered table-striped">
 			<tr>
-				<th>ID</th>
-				<th>Nome</th>
-				<th>Sexo</th>
-				<th>Nascimento</th>
-				<th>Cpf</th>
+				<th scope="col">ID</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Sexo</th>
+				<th scope="col">Nascimento</th>
+				<th scope="col">Cpf</th>
 			</tr>
 			<tr th:each="funcionario : ${funcionarios}">
 				<td th:text="${funcionario.id}"></td>
@@ -22,5 +24,9 @@
 			</tr>
 		
 		</table>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js" ></script>
+		<script src="header.js"></script>
 	</body>
 </html>
