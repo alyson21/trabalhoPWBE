@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cotemig.SpringBDController.model.Pagamentos;
+import com.cotemig.SpringBDController.model.Pagamento;
 import com.cotemig.SpringBDController.service.PagamentosService;
 @Controller
 public class PagamentosController {
@@ -34,7 +34,7 @@ public class PagamentosController {
 	
 	
 	@RequestMapping(value = "/insertpagamentos", method = RequestMethod.POST)
-    public String submitInsert(@Valid @ModelAttribute("Pagamentos")Pagamentos pagamentos, 
+    public String submitInsert(@Valid @ModelAttribute("Pagamentos")Pagamento pagamentos, 
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
@@ -54,7 +54,7 @@ public class PagamentosController {
 	
 	
 	@RequestMapping(value = "/updatepagamentos", method = RequestMethod.POST)
-    public String submitUpdate(@Valid @ModelAttribute("Pagamentos")Pagamentos pagamentos, 
+    public String submitUpdate(@Valid @ModelAttribute("Pagamentos")Pagamento pagamentos, 
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {
@@ -74,7 +74,7 @@ public class PagamentosController {
 	
 	
 	@RequestMapping(value = "/deletepagamentos", method = RequestMethod.POST)
-    public String submitDelete(@Valid @ModelAttribute("Pagamentos")Pagamentos pagamentos, 
+    public String submitDelete(@Valid @ModelAttribute("Pagamentos")Pagamento pagamentos, 
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {

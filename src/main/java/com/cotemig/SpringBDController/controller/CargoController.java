@@ -1,5 +1,7 @@
 package com.cotemig.SpringBDController.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,24 +14,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cotemig.SpringBDController.model.Cargo;
+import com.cotemig.SpringBDController.model.Funcionario;
 import com.cotemig.SpringBDController.service.CargoService;
+import com.cotemig.SpringBDController.service.SalarioService;
 import com.cotemig.SpringBDController.service.UsuarioService;
 @Controller
 public class CargoController {
 	
 	@Autowired
 	private CargoService cargoService;
+	@Autowired
+	private SalarioService salarioService;
 	
 
 	@RequestMapping(value = "/cargo", method = RequestMethod.GET)
     public ModelAndView listar() {
-		ModelAndView mav = new ModelAndView();
-			return new ModelAndView("cargo", "Cargo", cargoService.getAll());	
+		ModelAndView mav = new ModelAndView("cargo");
+		mav.addObject("cargos", cargoService.getAll());
+		return mav;	
     }
 	
 	@RequestMapping(value = "/insertcargo", method = RequestMethod.GET)
-    public String insert() {
-			return "insertCargo";		
+    public ModelAndView insert() {
+		ModelAndView mav = new ModelAndView("insertcargo");
+		mav.addObject("salarios", salarioService.getAll());
+		return mav;		
     }
 	
 	
@@ -43,7 +52,7 @@ public class CargoController {
         
 		cargoService.insert(cargo);
         
-        return "sucesso";
+        return "redirect:cargo";
     }
 	
 	@RequestMapping(value = "/updatecargo", method = RequestMethod.GET)

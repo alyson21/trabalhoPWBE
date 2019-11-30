@@ -1,5 +1,7 @@
 package com.cotemig.SpringBDController.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cotemig.SpringBDController.model.Funcionario;
 import com.cotemig.SpringBDController.model.Salario;
 import com.cotemig.SpringBDController.service.SalarioService;
 @Controller
@@ -21,8 +24,10 @@ public class SalarioController {
 
 	@RequestMapping(value = "/salario", method = RequestMethod.GET)
     public ModelAndView listar() {
-		ModelAndView mav = new ModelAndView();
-			return new ModelAndView("salario", "Salario", salarioService.getAll());	
+		List<Salario> salarios = salarioService.getAll();
+		ModelAndView mav = new ModelAndView("salario");
+		mav.addObject("salarios", salarios);
+		return mav;	
     }
 	
 	@RequestMapping(value = "/insertsalario", method = RequestMethod.GET)
@@ -41,7 +46,7 @@ public class SalarioController {
         
 		salarioService.insert(salario);
         
-        return "sucesso";
+        return "redirect:salario";
     }
 	
 	@RequestMapping(value = "/updatesalario", method = RequestMethod.GET)

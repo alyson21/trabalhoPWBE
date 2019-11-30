@@ -12,7 +12,10 @@
   			<input class="form-control" type="text" name="nome"><br>
   			<br>
   			Sexo:<br>
-  			<input class="form-control" type="text" name="sexo"><br>
+  			<select class="form-control" type="text" name="sexo"><br>
+  				<option  value="m">Masculino</option> 
+  				<option  value="f">Feminino</option> 
+  			</select>
   			<br>
   			Nascimento:<br>
   			<input class="form-control" type="date" name="dataNascimento"><br>
@@ -24,10 +27,15 @@
   			<input class="form-control" type="date" name="dataAdmissao"><br>
   			<br>
   			Salario:<br>
-  			<input class="form-control" type="text" name="idSalario"><br>
+  			<select class="form-control" type="text" name="salario"><br>
+  				<option  th:each="salario : ${salarios}"  th:value="${salario.id}" th:text="${salario.valor}"></option> 
+  			</select>
   			<br>
+  			
   			Setor:<br>
-  			<input class="form-control" type="text" name="idSetor"><br>
+  			<select class="form-control" type="text" name="setor"><br>
+  				<option  th:each="setor : ${setores}"  th:value="${setor.id}" th:text="${setor.nome}"></option> 
+  			</select>
   			<br>
   			
   			<input type="submit"   class="btn btn-primary">

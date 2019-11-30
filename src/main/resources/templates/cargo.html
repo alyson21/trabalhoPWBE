@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Cargos</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body>
+		<div id="header"></div>
+		<h1>Lista de Cargos</h1>
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Salário</th>
+			</tr>
+			<tr th:each="cargo : ${cargos}">
+				<td th:text="${cargo.id}"></td>
+				<td th:text="${cargo.nome}"></td>
+				<td th:text="${cargo.salario.valor}"></td>
+			</tr>
+		
+		</table>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js" ></script>
+		<script src="header.js"></script>
+	</body>
+</html>

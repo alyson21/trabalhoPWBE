@@ -42,7 +42,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 		
 		Optional<Funcionario> getFuncionario = getById(id);
 		getFuncionario.get().setNome(funcionario.getNome());
-		getFuncionario.get().setIdSalario(funcionario.getIdSalario());
+		getFuncionario.get().setSalario(funcionario.getSalario());
 		
 		funcionarioRepository.save(funcionario);
 	}

@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cotemig.SpringBDController.model.Funcionario;
+import com.cotemig.SpringBDController.model.Salario;
 import com.cotemig.SpringBDController.service.FuncionarioService;
 import com.cotemig.SpringBDController.service.SalarioService;
+import com.cotemig.SpringBDController.service.SetorService;
 
 
 @Controller
@@ -25,6 +27,8 @@ public class FuncionarioController {
 	private FuncionarioService funcionarioService;
 	@Autowired
 	private SalarioService salarioService;
+	@Autowired
+	private SetorService setorService;
 	
 	@RequestMapping(value = "/funcionario", method = RequestMethod.GET)
     public ModelAndView listar() {		
@@ -36,8 +40,12 @@ public class FuncionarioController {
     }
 	
 	@RequestMapping(value = "/insertfuncionario", method = RequestMethod.GET)
-    public String insert() {
-		return "insertfuncionario";	
+    public ModelAndView insert() {
+		
+		ModelAndView mav = new ModelAndView("insertfuncionario");
+		mav.addObject("salarios", salarioService.getAll());
+		mav.addObject("setores", setorService.getAll());
+		return mav;
     }
 	
 	@RequestMapping(value = "/insertfuncionario", method = RequestMethod.POST)

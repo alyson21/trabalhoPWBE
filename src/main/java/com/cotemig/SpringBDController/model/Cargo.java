@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cargo {
@@ -12,7 +14,9 @@ public class Cargo {
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	private String nome;
-	private Integer idSalario;
+	@ManyToOne
+	@JoinColumn(name = "id_salario")
+	private Salario salario;
 	
 	public Integer getId() {
 		return id;
@@ -26,11 +30,12 @@ public class Cargo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getIdSalario() {
-		return idSalario;
+	public Salario getSalario() {
+		return salario;
 	}
-	public void setIdSalario(Integer idSalario) {
-		this.idSalario = idSalario;
+	public void setSalario(Salario salario) {
+		this.salario = salario;
 	}
+	
 
 }

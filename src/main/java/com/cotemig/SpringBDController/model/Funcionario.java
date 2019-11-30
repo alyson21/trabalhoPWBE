@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,8 +24,13 @@ public class Funcionario {
 	private String cpf;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataAdmissao;
-	private Integer idSalario;
-	private Integer idSetor;
+	@ManyToOne
+	@JoinColumn(name = "id_salario")
+	private Salario salario;
+	@ManyToOne
+	@JoinColumn(name = "id_setor")
+	private Setor setor;
+	
 	
 	public Integer getId() {
 		return id;
@@ -61,17 +68,19 @@ public class Funcionario {
 	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
-	public Integer getIdSalario() {
-		return idSalario;
+	public Salario getSalario() {
+		return salario;
 	}
-	public void setIdSalario(Integer idSalario) {
-		this.idSalario = idSalario;
+	public void setSalario(Salario salario) {
+		this.salario = salario;
 	}
-	public Integer getIdSetor() {
-		return idSetor;
+	public Setor getSetor() {
+		return setor;
 	}
-	public void setIdSetor(Integer idSetor) {
-		this.idSetor = idSetor;
+	public void setSetor(Setor setor) {
+		this.setor = setor;
 	}
+	
+
 
 }

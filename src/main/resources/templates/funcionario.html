@@ -14,6 +14,8 @@
 				<th scope="col">Sexo</th>
 				<th scope="col">Nascimento</th>
 				<th scope="col">Cpf</th>
+				<th scope="col">Salario</th>
+				<th scope="col">Setor</th>
 			</tr>
 			<tr th:each="funcionario : ${funcionarios}">
 				<td th:text="${funcionario.id}"></td>
@@ -21,6 +23,8 @@
 				<td th:text="${funcionario.sexo}"></td>
 				<td th:text="${funcionario.dataNascimento}"></td>
 				<td th:text="${funcionario.cpf}"></td>
+				<td th:text="${funcionario.salario.valor}"></td>
+				<td th:text="${funcionario.setor.nome}"></td>
 			</tr>
 		
 		</table>

@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cotemig.SpringBDController.model.Pagamentos;
+import com.cotemig.SpringBDController.model.Pagamento;
 import com.cotemig.SpringBDController.repository.PagamentosRepository;
 
 @Service
@@ -17,12 +17,12 @@ public class PagamentosServiceImpl implements PagamentosService {
 	PagamentosRepository PagamentosRepository; 
 
 	@Override
-	public Optional<Pagamentos> getById(Integer id) {
+	public Optional<Pagamento> getById(Integer id) {
 		return PagamentosRepository.findById(id);
 	}
 
 	@Override
-	public List<Pagamentos> getAll() {
+	public List<Pagamento> getAll() {
 		return PagamentosRepository.findAll();
 	}
 
@@ -36,19 +36,19 @@ public class PagamentosServiceImpl implements PagamentosService {
 		PagamentosRepository.deleteById(id);
 	}
 	@Override
-	public void updateById(Integer id, Pagamentos pagamentos) {
+	public void updateById(Integer id, Pagamento pagamentos) {
 		
-		Optional<Pagamentos> getPagamentos = getById(id);
+		Optional<Pagamento> getPagamentos = getById(id);
 		getPagamentos.get().setTotal(pagamentos.getTotal());
 		PagamentosRepository.save(pagamentos);
 	}
 	@Override
-	public void update(Pagamentos pagamentos) {
+	public void update(Pagamento pagamentos) {
 		PagamentosRepository.save(pagamentos);
 	}
 
 	@Override
-	public void insert(Pagamentos pagamentos) {
+	public void insert(Pagamento pagamentos) {
 		PagamentosRepository.save(pagamentos);
 	}
 }

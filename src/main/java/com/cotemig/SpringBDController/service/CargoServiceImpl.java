@@ -40,7 +40,7 @@ public class CargoServiceImpl implements CargoService {
 		
 		Optional<Cargo> getCargo = getById(id);
 		getCargo.get().setNome(cargo.getNome());
-		getCargo.get().setIdSalario(cargo.getIdSalario());
+		getCargo.get().setSalario(cargo.getSalario());
 		CargoRepository.save(cargo);
 	}
 	
