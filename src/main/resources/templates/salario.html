@@ -5,20 +5,21 @@
 	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
-		<div id="header"></div>
-		<h1>Lista de Salarios</h1>
-		<table class="table table-bordered table-striped">
-			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">Valor</th>
-			</tr>
-			<tr th:each="salario : ${salarios}">
-				<td th:text="${salario.id}"></td>
-				<td th:text="${salario.valor}"></td>
-			</tr>
-		
-		</table>
-		
+		<div th:replace="fragments/header"></div>
+		<div class="container">
+			<h1>Lista de Salarios</h1>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Valor</th>
+				</tr>
+				<tr th:each="salario : ${salarios}">
+					<td th:text="${salario.id}"></td>
+					<td th:text="${salario.valor}"></td>
+				</tr>
+			
+			</table>
+		</div>		
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js" ></script>
 		<script src="header.js"></script>

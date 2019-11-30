@@ -5,22 +5,23 @@
 	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
-		<div id="header"></div>
-		<form class="form-group mb-4" style="max-width: 363px;" action="/insertcargo" method="POST" modelAttribute="cargo">
-		
-  			Nome:<br>
-  			<input class="form-control" type="text" name="nome"><br>
-  			<br>
-  			Salario:<br>
-  			<select class="form-control" type="text" name="salario"><br>
-  				<option  th:each="salario : ${salarios}"  th:value="${salario.id}" th:text="${salario.valor}"></option> 
-  			</select>
-  			<br>
-  			
-  			<input type="submit"   class="btn btn-primary">
-		</form>
+		<div th:replace="fragments/header"></div>
+		<div class="container">
+			<form class="form-group mb-4" style="max-width: 363px;" action="/insertcargo" method="POST" modelAttribute="cargo">
+			
+	  			Nome:<br>
+	  			<input class="form-control" type="text" name="nome"><br>
+	  			<br>
+	  			Salario:<br>
+	  			<select class="form-control" type="text" name="salario"><br>
+	  				<option  th:each="salario : ${salarios}"  th:value="${salario.id}" th:text="${salario.valor}"></option> 
+	  			</select>
+	  			<br>
+	  			
+	  			<input type="submit"   class="btn btn-primary">
+			</form>
+		</div>
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js" ></script>
-		<script src="header.js"></script>
 	</body>
 </html>

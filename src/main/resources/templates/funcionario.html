@@ -5,32 +5,32 @@
 	    <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
-		<div id="header"></div>
-		<h1>Lista de Funcionários</h1>
-		<table class="table table-bordered table-striped">
-			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">Nome</th>
-				<th scope="col">Sexo</th>
-				<th scope="col">Nascimento</th>
-				<th scope="col">Cpf</th>
-				<th scope="col">Salario</th>
-				<th scope="col">Setor</th>
-			</tr>
-			<tr th:each="funcionario : ${funcionarios}">
-				<td th:text="${funcionario.id}"></td>
-				<td th:text="${funcionario.nome}"></td>
-				<td th:text="${funcionario.sexo}"></td>
-				<td th:text="${funcionario.dataNascimento}"></td>
-				<td th:text="${funcionario.cpf}"></td>
-				<td th:text="${funcionario.salario.valor}"></td>
-				<td th:text="${funcionario.setor.nome}"></td>
-			</tr>
-		
-		</table>
-		
+		<div th:replace="fragments/header"></div>
+		<div class="container">
+			<h1>Lista de Funcionários</h1>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Sexo</th>
+					<th scope="col">Nascimento</th>
+					<th scope="col">Cpf</th>
+					<th scope="col">Salario</th>
+					<th scope="col">Setor</th>
+				</tr>
+				<tr th:each="funcionario : ${funcionarios}">
+					<td th:text="${funcionario.id}"></td>
+					<td th:text="${funcionario.nome}"></td>
+					<td th:text="${funcionario.sexo}"></td>
+					<td th:text="${funcionario.dataNascimento}"></td>
+					<td th:text="${funcionario.cpf}"></td>
+					<td th:text="${funcionario.salario.valor}"></td>
+					<td th:text="${funcionario.setor.nome}"></td>
+				</tr>
+			
+			</table>
+		</div>
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js" ></script>
-		<script src="header.js"></script>
 	</body>
 </html>
