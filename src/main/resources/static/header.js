@@ -33,7 +33,7 @@ var header =
                 Setor
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Cadastrar</a>
+                    <a class="dropdown-item" href="insertsetor">Cadastrar</a>
                     <a class="dropdown-item" href="#">Alterar</a>
                     <a class="dropdown-item" href="#">Excluir</a>
                 </div>
@@ -44,7 +44,7 @@ var header =
                 Salário
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Cadastrar</a>
+                    <a class="dropdown-item" href="insertsalario">Cadastrar</a>
                     <a class="dropdown-item" href="#">Alterar</a>
                     <a class="dropdown-item" href="#">Excluir</a>
                 </div>

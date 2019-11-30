@@ -28,7 +28,7 @@ public class SetorController {
 	
 	@RequestMapping(value = "/insertsetor", method = RequestMethod.GET)
     public String insert() {
-			return "insertSetor";		
+			return "insertsetor";		
     }
 	
 	

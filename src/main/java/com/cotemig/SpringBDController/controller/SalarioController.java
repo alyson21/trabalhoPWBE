@@ -27,7 +27,7 @@ public class SalarioController {
 	
 	@RequestMapping(value = "/insertsalario", method = RequestMethod.GET)
     public String insert() {
-			return "insertSalario";		
+			return "insertsalario";		
     }
 	
 	
