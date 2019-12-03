@@ -1,6 +1,7 @@
 package com.cotemig.SpringBDController.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,6 +32,8 @@ public class Funcionario {
 	@ManyToOne
 	@JoinColumn(name = "id_setor")
 	private Setor setor;
+	@ManyToOne
+	private List<Pagamento> pagamento;
 	
 	
 	public Integer getId() {
@@ -80,7 +84,11 @@ public class Funcionario {
 	public void setSetor(Setor setor) {
 		this.setor = setor;
 	}
+	public List<Pagamento> getPagamento() {
+		return pagamento;
+	}
+	public void setPagamento(List<Pagamento> pagamento) {
+		this.pagamento = pagamento;
+	}
 	
-
-
 }

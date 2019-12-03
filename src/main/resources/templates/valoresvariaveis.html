@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Valores Variáveis</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body>
+		<div th:replace="fragments/header"></div>
+		<div class="container">
+			<h1>Lista de Valores Variáveis</h1>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Competência</th>
+					<th scope="col">Funcionário Vinculado</th>
+					<th scope="col">Natureza</th>
+					<th scope="col">Tipo</th>
+					<th scope="col">Valor</th>
+				</tr>
+				<tr th:each="valor : ${valores}">
+					<td th:text="${valor.id}"></td>
+					<td th:text="${valor.competencia}"></td>
+					<td th:text="${valor.pagamento.funcionario.nome}"></td>
+					<td th:text="${valor.tipo}"></td>
+					<td th:text="${valor.valor}"></td>
+				</tr>
+			
+			</table>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js" ></script>
+	</body>
+</html>

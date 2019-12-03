@@ -1,0 +1,37 @@
+<html>
+	<head>
+	    <title>Inserir Valor</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body>
+		<div th:replace="fragments/header"></div>
+		<div class="container">
+			<form class="form-group mb-4" style="max-width: 363px;" action="/insertvaloresvariaveis" method="POST" modelAttribute="valoresvariaveis">
+			
+	  			Competência:<br>
+	  			<input class="form-control" type="number" name="competencia">
+	  			<br>
+	  			Natureza:<br>
+	  			<input class="form-control" type="text" name="natureza">
+	  			<br>
+	  			Descrição:<br>
+	  			<input class="form-control" type="text" name="descricao">
+	  			<br>
+	  			Tipo:<br>
+	  			<input class="form-control" type="text" name="tipo">
+	  			<br>
+	  			Valor:<br>
+	  			<input class="form-control" type="text" name="valor">
+	  			<br>
+	  			Salário referente:<br>
+	  			<select class="form-control" type="text" name="pagamento"><br>
+	  				<option  th:each="pagamento : ${pagamentos}"  th:value="${salario.id}" th:text="${salario.valor}"></option> 
+	  			</select>
+	  			<br>
+			</form>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js" ></script>
+	</body>
+</html>

@@ -4,6 +4,8 @@ package com.cotemig.SpringBDController.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.management.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class ValoresVariaveisServiceImpl implements ValoresVariaveisService {
 
 	@Override
 	public Optional<ValoresVariaveis> getById(Integer id) {
+		
 		return ValoresVariaveisRepository.findById(id);
 	}
 

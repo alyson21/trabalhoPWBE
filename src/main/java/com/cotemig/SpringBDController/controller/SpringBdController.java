@@ -103,12 +103,10 @@ public class SpringBdController {
         mav.addObject("Salarios", SalarioService.getAll());
         mav.addObject("setors",  setorService.getAll());
         return mav;
-        
     }
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() {
-        
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("Salarios", SalarioService.getAll());
         mav.addObject("setors", setorService.getAll());

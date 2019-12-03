@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ValoresVariaveis {
@@ -12,9 +13,11 @@ public class ValoresVariaveis {
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	private Integer competencia;
-	private String natureza;
+	private String descricao;
 	private String tipo;
 	private Double valor;
+	@OneToMany
+	private Pagamento pagamento;
 	
 	public Integer getId() {
 		return id;
@@ -29,10 +32,10 @@ public class ValoresVariaveis {
 		this.competencia = competencia;
 	}
 	public String getNatureza() {
-		return natureza;
+		return descricao;
 	}
 	public void setNatureza(String natureza) {
-		this.natureza = natureza;
+		this.descricao = natureza;
 	}
 	public String getTipo() {
 		return tipo;
@@ -46,7 +49,10 @@ public class ValoresVariaveis {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-	
-	
-
+	public Pagamento getPagamento() {
+		return pagamento;
+	}
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
+	}
 }
