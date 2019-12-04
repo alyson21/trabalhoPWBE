@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -16,10 +17,14 @@ public class Pagamento {
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	private Integer competencia;
-	@OneToMany
-	private Funcionario funcionario;
 	@ManyToOne
+	@JoinColumn(name = "pagamento_funcionario_id")
+	private Funcionario funcionario;
+	@OneToMany
+	@JoinColumn(name = "pagamento_valores_id")
 	private List<ValoresVariaveis> valoresVariaveis;
+	@ManyToOne
+	@JoinColumn(name = "pagamento_salario_id")
 	private Salario salario;
 	private Double total;
 	
@@ -59,6 +64,5 @@ public class Pagamento {
 	public void setValoresVariaveis(List<ValoresVariaveis> valoresVariaveis) {
 		this.valoresVariaveis = valoresVariaveis;
 	}
-	
 	
 }

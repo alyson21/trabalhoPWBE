@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,7 +18,8 @@ public class ValoresVariaveis {
 	private String descricao;
 	private String tipo;
 	private Double valor;
-	@OneToMany
+	@ManyToOne
+	@JoinColumn(name = "valores_pagamento_id")
 	private Pagamento pagamento;
 	
 	public Integer getId() {
@@ -30,12 +33,6 @@ public class ValoresVariaveis {
 	}
 	public void setCompetencia(Integer competencia) {
 		this.competencia = competencia;
-	}
-	public String getNatureza() {
-		return descricao;
-	}
-	public void setNatureza(String natureza) {
-		this.descricao = natureza;
 	}
 	public String getTipo() {
 		return tipo;
@@ -55,4 +52,11 @@ public class ValoresVariaveis {
 	public void setPagamento(Pagamento pagamento) {
 		this.pagamento = pagamento;
 	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
 }

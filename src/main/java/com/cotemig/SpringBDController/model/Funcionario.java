@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToMany;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -32,7 +32,8 @@ public class Funcionario {
 	@ManyToOne
 	@JoinColumn(name = "id_setor")
 	private Setor setor;
-	@ManyToOne
+	@OneToMany
+	@JoinColumn(name = "funcionario_id")
 	private List<Pagamento> pagamento;
 	
 	
@@ -90,5 +91,7 @@ public class Funcionario {
 	public void setPagamento(List<Pagamento> pagamento) {
 		this.pagamento = pagamento;
 	}
+	
+	
 	
 }

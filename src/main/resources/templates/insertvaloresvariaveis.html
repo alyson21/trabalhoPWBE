@@ -12,23 +12,24 @@
 	  			Competência:<br>
 	  			<input class="form-control" type="number" name="competencia">
 	  			<br>
-	  			Natureza:<br>
-	  			<input class="form-control" type="text" name="natureza">
-	  			<br>
 	  			Descrição:<br>
 	  			<input class="form-control" type="text" name="descricao">
 	  			<br>
 	  			Tipo:<br>
-	  			<input class="form-control" type="text" name="tipo">
-	  			<br>
+  				<select class="form-control" type="text" name="tipo">
+  					<option value="provento">Provento</option>
+  					<option value="desconto">Desconto</option>
+	  			</select>
+
 	  			Valor:<br>
 	  			<input class="form-control" type="text" name="valor">
 	  			<br>
-	  			Salário referente:<br>
-	  			<select class="form-control" type="text" name="pagamento"><br>
-	  				<option  th:each="pagamento : ${pagamentos}"  th:value="${salario.id}" th:text="${salario.valor}"></option> 
+	  			Referente a:
+	  			<select class="form-control" type="text" name="funcionario"><br>
+	  				<option  th:each="funcionario : ${funcionarios}"  th:value="${funcionario.id}" th:text="${funcionario.nome}"></option> 
 	  			</select>
 	  			<br>
+	  			<input type="submit"   class="btn btn-primary">
 			</form>
 		</div>
 		<script src="js/jquery.js"></script>

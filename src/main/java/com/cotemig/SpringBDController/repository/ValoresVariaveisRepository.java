@@ -14,4 +14,7 @@ import com.cotemig.SpringBDController.model.ValoresVariaveis;
 public interface ValoresVariaveisRepository extends JpaRepository<ValoresVariaveis, Integer> {
 	@Query("SELECT p FROM Pagamento p WHERE competencia = :competencia")
 	public List<Pagamento>findPagamentoByCompetencia(@Param("competencia") Integer competencia);
+	
+	@Query("SELECT p FROM Pagamento p WHERE competencia = :competencia and pagamento_funcionario_id = :idFuncionario")
+	public Pagamento findPagamentoByCompetenciaId(@Param("competencia") Integer competencia, @Param("idFuncionario") Integer idFuncionario);
 }

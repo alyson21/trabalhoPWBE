@@ -4,11 +4,11 @@ package com.cotemig.SpringBDController.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.management.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cotemig.SpringBDController.model.Pagamento;
 import com.cotemig.SpringBDController.model.ValoresVariaveis;
 import com.cotemig.SpringBDController.repository.ValoresVariaveisRepository;
 
@@ -23,7 +23,14 @@ public class ValoresVariaveisServiceImpl implements ValoresVariaveisService {
 		
 		return ValoresVariaveisRepository.findById(id);
 	}
-
+	@Override
+	public List<Pagamento> findPagamentoByCompetencia(Integer competencia) {
+		return ValoresVariaveisRepository.findPagamentoByCompetencia(competencia);
+	}
+	@Override
+	public Pagamento findPagamentoByCompetenciaID(Integer competencia, Integer funcionario) {
+		return ValoresVariaveisRepository.findPagamentoByCompetenciaId(competencia, funcionario);
+	}
 	@Override
 	public List<ValoresVariaveis> getAll() {
 		return ValoresVariaveisRepository.findAll();
@@ -54,4 +61,5 @@ public class ValoresVariaveisServiceImpl implements ValoresVariaveisService {
 	public void insert(ValoresVariaveis valoresVariaveis) {
 		ValoresVariaveisRepository.save(valoresVariaveis);
 	}
+	
 }
